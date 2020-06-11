@@ -2,9 +2,9 @@ import React from 'react';
 
 import LoginPanel from '../../components/Login/Login.component';
 import Dropdown from '../../components/Dropdown/Dropdown';
-import Johndoe from '../../assets/images/jhonDoe.png'
-import Tyler from '../../assets/images/tyler.png'
-import Sarah from '../../assets/images/Womanicon.png'
+import Johndoe from '../../assets/images/SVG/jhondoe.svg'
+import Tyler from '../../assets/images/SVG/tyler.svg'
+import Sarah from '../../assets/images/SVG/sarahIcon.svg'
 
 
 import './loginPage.styles.scss'
@@ -13,17 +13,17 @@ const items = [
   {
     id: 1,
     value: 'Turkey',
-    icon: Johndoe
+    icon: Tyler
   },
   {
     id: 2,
     value: 'Test',
-    icon: Tyler
+    icon: Sarah
   },
   {
     id: 3,
     value: 'ham',
-    icon: Sarah
+    icon: Johndoe
   },
 ]
 

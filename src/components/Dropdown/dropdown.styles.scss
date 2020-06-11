@@ -27,6 +27,11 @@
     }
   }
 
+  .dd-avatar {
+    width: 50px;
+    margin: 0 15px 0px 0px;
+  }
+
   .dd-list {
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
     padding: 0;
@@ -62,6 +67,15 @@
         text-align: left;
         border-left: 1px solid #ccc;
         border-right: 1px solid #ccc;
+
+        span {
+          display: flex;
+        }
+
+        .dd-selected {
+          display: flex;
+          align-self: center;
+        }
 
         &:hover &:focus {
           cursor: pointer;

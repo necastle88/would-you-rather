@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+
 import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import { FaCheck } from 'react-icons/fa';
 
-
-import Johndoe from '../../assets/images/Womanicon.png'
-
-
-
 import '../Dropdown/dropdown.styles.scss';
 
-const Dropdown = ({ title, items = [], icon, multiselect = false }) => {
+const Dropdown = ({ title, items = [], multiselect = false }) => {
   const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState([]);
-  
   const toggle = () => setOpen(!open);
- 
+  
   const handleOnClick = (item) => {
     if (!selection.some(current => current.id === item.id)) {
       if (!multiselect) {
@@ -36,6 +31,7 @@ const Dropdown = ({ title, items = [], icon, multiselect = false }) => {
     } else return false
   }
 
+  
   return (
     <div className='dd-wrapper'>
       <div 
@@ -60,8 +56,8 @@ const Dropdown = ({ title, items = [], icon, multiselect = false }) => {
           {items.map(item => (
             <li className='dd-list-item' key={item.id}>
               <button type='button' onClick={() => handleOnClick(item)}>
-                <span><Johndoe />{item.value}</span>
-                <span>{isItemSelected(item) && <FaCheck style={{ color: '#6617cb' }}/>}</span>
+                <span><img className='dd-avatar' src={item.icon} alt='user avatars'/><p className='dd-avatar-name'>{item.value}</p></span>
+                <span className='dd-selected'>{isItemSelected(item) && <FaCheck style={{ color: '#6617cb' }}/>}</span>
               </button>
             </li>
           ))}

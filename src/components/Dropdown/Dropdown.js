@@ -3,9 +3,9 @@ import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import { FaCheck } from 'react-icons/fa';
 
-import sarah  from './src/assets/images/sarah.png'
-import { johndoe }  from '../../assets/images/sarah.png'
-import tyler from '../../assets/images/tyler.png';
+
+import Johndoe from '../../assets/images/Womanicon.png'
+
 
 
 import '../Dropdown/dropdown.styles.scss';
@@ -60,7 +60,7 @@ const Dropdown = ({ title, items = [], icon, multiselect = false }) => {
           {items.map(item => (
             <li className='dd-list-item' key={item.id}>
               <button type='button' onClick={() => handleOnClick(item)}>
-                <span>{johndoe}{item.value}</span>
+                <span><Johndoe />{item.value}</span>
                 <span>{isItemSelected(item) && <FaCheck style={{ color: '#6617cb' }}/>}</span>
               </button>
             </li>

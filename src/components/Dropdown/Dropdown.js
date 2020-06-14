@@ -7,6 +7,7 @@ import { FaCheck } from 'react-icons/fa';
 import '../Dropdown/dropdown.styles.scss';
 
 const Dropdown = ({ title, items = [], multiselect = false }) => {
+  
   const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState([]);
   const toggle = () => setOpen(!open);
@@ -56,7 +57,7 @@ const Dropdown = ({ title, items = [], multiselect = false }) => {
           {items.map(item => (
             <li className='dd-list-item' key={item.id}>
               <button type='button' onClick={() => handleOnClick(item)}>
-                <span><img className='dd-avatar' src={item.icon} alt='user avatars'/><p className='dd-avatar-name'>{item.value}</p></span>
+                <span><img className='dd-avatar' src={item.avatarURL} alt='user avatars'/><p className='dd-avatar-name'>{item.name}</p></span>
                 <span className='dd-selected'>{isItemSelected(item) && <FaCheck style={{ color: '#6617cb' }}/>}</span>
               </button>
             </li>

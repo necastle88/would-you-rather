@@ -1,6 +1,6 @@
-import sarah  from './src/assets/images/SVG/sarahIcon.svg'
-import johndoe  from './src/assets/images/SVG/jhondoe.svg'
-import tyler from './src/assets/images/SVG/tyler.svg'
+import sarah  from '../assets/images/SVG/sarahIcon.svg';
+import johndoe  from '../assets/images/SVG/jhondoe.svg';
+import tyler from '../assets/images/SVG/tyler.svg';
 
 let users = {
   sarahedo: {

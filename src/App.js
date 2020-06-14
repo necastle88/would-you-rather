@@ -1,14 +1,39 @@
 import React from 'react';
-import './App.scss';
+import { connect } from 'react-redux';
+
 import LoginPage from './pages/login/loginPage';
+import LoadingBar from 'react-redux-loading';
+
+import { handleInitData } from './actions/shared';
+
+import './App.scss';
 
 
-function App() {
-  return (
-    <div className="App">
-      <LoginPage />
-    </div>
-  );
+class App extends React.Component{
+
+  componentDidMount() {
+    this.props.dispatch(handleInitData());
+  }
+
+  render() {
+    return (
+      <div className="App">
+      <LoadingBar style={{
+        backgroundColor: '#cb218e', 
+        height: '3px',
+        position: 'absolute',
+        marginTop: '7px'
+      }}/>
+        <LoginPage />
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = ({ authedUser }) => {
+  return {
+    loading: authedUser === null,
+  }
+}
+
+export default connect(mapStateToProps)(App);

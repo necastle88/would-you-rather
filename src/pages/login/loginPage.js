@@ -1,35 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-import LoginPanel from '../../components/Login/Login.component';
 import Dropdown from '../../components/Dropdown/Dropdown';
-import Johndoe from '../../assets/images/SVG/jhondoe.svg'
-import Tyler from '../../assets/images/SVG/tyler.svg'
-import Sarah from '../../assets/images/SVG/sarahIcon.svg'
-
 
 import './loginPage.styles.scss'
 
-const items = [
-  {
-    id: 1,
-    value: 'Turkey',
-    icon: Tyler
-  },
-  {
-    id: 2,
-    value: 'Test',
-    icon: Sarah
-  },
-  {
-    id: 3,
-    value: 'ham',
-    icon: Johndoe
-  },
-]
+const LoginPage = ({ authedUser, users }) => {
 
-const LoginPage = () => {
   return (
+    
     <div className='login-container'>
+    {console.log(users)}
       <div className='color-strip-top'></div>
       <div className='panel-container'>
       <div className='question-box'>
@@ -40,7 +21,8 @@ const LoginPage = () => {
       <p className='copy'>Select a account to sign in</p>
       <Dropdown 
         title='Select User' 
-        items={items}
+        items={users}
+        authedUser={authedUser}
         />
       <button type='submit' className='login-btn'>SIGN IN</button>
       
@@ -49,5 +31,12 @@ const LoginPage = () => {
     </div>
   )
 }
+const mapStateToProps = ({ authedUser, users }) => {
+  return{
+    users: Object.values(users),
+    authedUser
+  }
+}
 
-export default LoginPage;
+
+export default connect(mapStateToProps)(LoginPage);

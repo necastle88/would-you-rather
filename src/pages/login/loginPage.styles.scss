@@ -30,6 +30,7 @@ h1.heading {
       flex-direction: column;
       align-items: center;
       margin: 72px auto;
+      max-width: min-content;
     }
 
     .question-box {

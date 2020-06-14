@@ -4,10 +4,13 @@ import { TiArrowSortedDown } from 'react-icons/ti';
 import { TiArrowSortedUp } from 'react-icons/ti';
 import { FaCheck } from 'react-icons/fa';
 
+import { connect } from 'react-redux';
+import { setAuthedUser } from '../../actions/authedUser';
+
 import '../Dropdown/dropdown.styles.scss';
 
-const Dropdown = ({ title, items = [], multiselect = false }) => {
-  
+const Dropdown = ( {users = [], authedUser, setAuthedUser} ) => {
+  const multiselect = false;
   const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState([]);
   const toggle = () => setOpen(!open);
@@ -25,13 +28,13 @@ const Dropdown = ({ title, items = [], multiselect = false }) => {
       }
     }
   }
-  
+  let selectedUser = ''
+
   const isItemSelected = (item) => {
     if (selection.find(current => current.id === item.id)) {
-      return true
+      return selectedUser = item.id;
     } else return false
   }
-
   
   return (
     <div className='dd-wrapper'>
@@ -43,7 +46,7 @@ const Dropdown = ({ title, items = [], multiselect = false }) => {
         onClick={() => toggle(!open)}
       >
       <div className='dd-header__title'>
-        <p className='dd-header__title--bold'>{title}</p>
+        <p className='dd-header__title--bold'>Select a user</p>
       </div>
       <div className='dd-header__action'>
         <p>{open 
@@ -54,18 +57,40 @@ const Dropdown = ({ title, items = [], multiselect = false }) => {
       </div>
       {open && (
         <ul className='dd-list'>
-          {items.map(item => (
-            <li className='dd-list-item' key={item.id}>
-              <button type='button' onClick={() => handleOnClick(item)}>
-                <span><img className='dd-avatar' src={item.avatarURL} alt='user avatars'/><p className='dd-avatar-name'>{item.name}</p></span>
-                <span className='dd-selected'>{isItemSelected(item) && <FaCheck style={{ color: '#6617cb' }}/>}</span>
+          {users.map(user => (
+            <li className='dd-list-item' key={user.id}>
+              <button type='button' onClick={() => handleOnClick(user)}>
+                <span><img className='dd-avatar' src={user.avatarURL} alt='user avatars'/><p className='dd-avatar-name'>{user.name}</p></span>
+                <span className='dd-selected'>{isItemSelected(user) && <FaCheck style={{ color: '#6617cb' }} /> 
+              }</span>
               </button>
             </li>
           ))}
+          
         </ul>
+        
       )}
+      <button 
+        type='submit' 
+        className='login-btn'
+        onClick={() => setAuthedUser(selectedUser)}
+        >SIGN IN</button>
     </div>
   )
 }
 
-export default Dropdown;
+const mapStateToProps = ({ authedUser, users }, ownProps) => {
+  return{
+    users: Object.values(users),
+    authedUser,
+    ownProps
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setAuthedUser: userId => dispatch(setAuthedUser(userId))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Dropdown);

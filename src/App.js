@@ -7,7 +7,7 @@ import LoadingBar from 'react-redux-loading';
 import { handleInitData } from './actions/shared';
 
 import './App.scss';
-
+import Nav from './components/Nav/Nav.component';
 
 class App extends React.Component{
 
@@ -18,6 +18,7 @@ class App extends React.Component{
   render() {
     return (
       <div className="App">
+      <Nav />
       <LoadingBar style={{
         backgroundColor: '#cb218e', 
         height: '3px',

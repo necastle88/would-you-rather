@@ -1,21 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { setAuthedUser } from '../../actions/authedUser';
 
 import './nav.styles.scss';
 
-const Nav = ({ authedUser, users }) => {
-  console.log(users[authedUser])
+const Nav = ({ authedUser, users, dispatch }, props) => {
+  console.log(props.setAuthedUser)
   return(
     <div className='nav-container'>
       <div className='nav-links-container'>
-        Hello
       </div>
       <div className='user-info-container'>
         {authedUser !== null 
-          ? <img src={users[authedUser].avatarURL} width='65px' alt='your avatar' /> 
+          ? <span className='user-info-container'><p className='user-name'>{users[authedUser].name}<img src={users[authedUser].avatarURL} width='50px' alt='your avatar' /></p></span>
           : 'Sign in'
         }
-        <h3 className='login-btn' onClick={() => console.log('hello')} >Logout</h3>
+        <h3 className='login-btn' onClick={() => dispatch(setAuthedUser(null))} >{authedUser ? 'Logout' : ''}</h3>
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ import { setAuthedUser } from '../../actions/authedUser';
 
 import '../Dropdown/dropdown.styles.scss';
 
-const Dropdown = ( {users = [], authedUser, setAuthedUser} ) => {
+const Dropdown = ( {users = [], setAuthedUser} ) => {
   const multiselect = false;
   const [open, setOpen] = useState(false);
   const [selection, setSelection] = useState([]);
@@ -87,9 +87,10 @@ const mapStateToProps = ({ authedUser, users }, ownProps) => {
   }
 }
 
+
 const mapDispatchToProps = dispatch => {
   return {
-    setAuthedUser: userId => dispatch(setAuthedUser(userId))
+    setAuthedUser: user => dispatch(setAuthedUser(user))
   }
 }
 

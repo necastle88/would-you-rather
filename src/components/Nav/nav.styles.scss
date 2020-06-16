@@ -1,0 +1,15 @@
+$body-font: 'Roboto', 'sans-serif';
+
+.user-info-container {
+  display: flex;
+  align-content: baseline;
+  align-items: center;
+  justify-content: flex-end;
+
+  p.user-name {
+    display: flex;
+    align-items: center;
+    font-family: $body-font;
+    font-size: 16px;
+  }
+}

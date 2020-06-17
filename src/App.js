@@ -8,6 +8,7 @@ import { handleInitData } from './actions/shared';
 
 import './App.scss';
 import Nav from './components/Nav/Nav.component';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends React.Component{
 
@@ -17,16 +18,21 @@ class App extends React.Component{
 
   render() {
     return (
-      <div className="App">
-      <Nav />
-      <LoadingBar style={{
-        backgroundColor: '#cb218e', 
-        height: '3px',
-        position: 'absolute',
-        marginTop: '7px'
-      }}/>
-        <LoginPage />
-      </div>
+   
+      <Router>
+        <div className="App">
+        <Nav />
+        <LoadingBar style={{
+          backgroundColor: '#cb218e', 
+          height: '3px',
+          position: 'absolute',
+          marginTop: '7px'
+         }}/>
+          <LoginPage />
+          </div>
+        </Router>
+     
+      
     );
   }
 }

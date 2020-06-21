@@ -7,6 +7,7 @@ import './nav.styles.scss';
 
 const Nav = ({ authedUser, users, dispatch }) => {
   return(
+    <span>
     <div className='nav-container'>
     <span className='nav-spacer-left'></span>
       <span className='nav-links-container'>
@@ -39,8 +40,11 @@ const Nav = ({ authedUser, users, dispatch }) => {
           : null
         }
         <p className='login-btn' onClick={() => dispatch(setAuthedUser(null))} >{authedUser ? 'Logout' : ''}</p>
+        
       </div>
     </div>
+    <span className='color-strip-bottom'></span>
+    </span>
   )
 }
 

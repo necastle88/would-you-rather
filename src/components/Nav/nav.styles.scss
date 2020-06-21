@@ -42,8 +42,6 @@ $text-size: 16px;
     }
   }
 
-
-
   .user-info-container {
     display: flex;
     align-content: baseline;
@@ -59,6 +57,15 @@ $text-size: 16px;
       letter-spacing: .05em;
     }
   }
+}
+
+.color-strip-bottom {
+  height: 7px;
+  width: 100vw;
+  background-color: #a4508b;
+  background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+  display: block;
+  margin: 0 0 0 0;
 }
 
 a.active {

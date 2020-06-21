@@ -7,7 +7,6 @@ import './loginPage.styles.scss'
 const LoginPage = () => {
   return (
     <div className='login-container'>
-      <div className='color-strip-top'></div>
         <div className='panel-container'>
           <div className='question-box'>
             <h1 className='question-mark'>?</h1>

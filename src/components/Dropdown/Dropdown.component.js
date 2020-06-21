@@ -74,6 +74,7 @@ const Dropdown = ( {users = [], setAuthedUser} ) => {
         type='submit' 
         className='login-btn'
         onClick={() => setAuthedUser(selectedUser)}
+        disabled={!selectedUser}
         >SIGN IN</button>
     </div>
   )

@@ -5,8 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import './nav.styles.scss';
 
-const Nav = ({ authedUser, users, dispatch }, props) => {
-  console.log(props.setAuthedUser)
+const Nav = ({ authedUser, users, dispatch }) => {
   return(
     <div className='nav-container'>
     <span className='nav-spacer-left'></span>
@@ -31,10 +30,15 @@ const Nav = ({ authedUser, users, dispatch }, props) => {
       </span>
       <div className='user-info-container'>
         {authedUser !== null 
-          ? <span className='user-info-container'><p className='user-name'>{users[authedUser].name}<img src={users[authedUser].avatarURL} width='50px' alt='your avatar' /></p></span>
-          : 'Sign in'
+          ? <span className='user-info-container'><p className='user-name'>{users[authedUser].name}<img 
+            src={users[authedUser].avatarURL} 
+            width='50px' 
+            alt='your avatar' 
+            className='user-avatar'
+            /></p></span>
+          : null
         }
-        <h3 className='login-btn' onClick={() => dispatch(setAuthedUser(null))} >{authedUser ? 'Logout' : ''}</h3>
+        <p className='login-btn' onClick={() => dispatch(setAuthedUser(null))} >{authedUser ? 'Logout' : ''}</p>
       </div>
     </div>
   )

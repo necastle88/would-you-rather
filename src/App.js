@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { connect } from 'react-redux';
 
 import LoginPage from './pages/login/loginPage';
+import Dashboard from './pages/dashboard/Dashboard.page';
 
 import LoadingBar from 'react-redux-loading';
 
@@ -12,42 +14,36 @@ import Nav from './components/Nav/Nav.component';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
-class App extends React.Component{
+const App = (props) => {
+  useEffect(() => {
+    handleInitData()
+  }, []); 
 
-  componentDidMount() {
-    this.props.dispatch(handleInitData());
-  }
-
-  render() {
     return (
-   
+     
       <Router>
         <div className="App">
-        <Nav />
-        <LoadingBar style={{
-          backgroundColor: '#cb218e', 
-          height: '6px',
-          position: 'absolute',
-          marginTop: '-1px'
-         }}/>
-         {
-           this.props.loading === true 
-           ? null
-           : <div>
-              <Route path='/' exact component={''}/>
-              <Route path='login' exact component={LoginPage}/>
-              
-             </div>
-
-         }
-          <LoginPage />
-          </div>
+          <Nav />
+          <LoadingBar style={{
+            backgroundColor: '#cb218e', 
+            height: '6px',
+            position: 'absolute',
+            marginTop: '-1px'
+          }}/>
+          {props.loading === true
+            ? <LoginPage />
+            : <div>
+                <Route path='/' exact component={Dashboard}/>
+              </div>
+          }
+       
+        </div>
         </Router>
      
       
     );
   }
-}
+
 
 const mapStateToProps = ({ authedUser }) => {
   return {

@@ -47,7 +47,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.1.0", "@babel/core@^7.4.5":
+"@babel/core@^7.1.0", "@babel/core@^7.10.3", "@babel/core@^7.4.5":
   version "7.10.3"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.10.3.tgz#73b0e8ddeec1e3fdd7a2de587a60e17c440ec77e"
   integrity sha512-5YqWxYE3pyhIi84L84YcwjeEgS+fa7ZjK6IBVGTjDVfm64njkR2lfDhVR5OudLk8x2GK59YoSyVv+L/03k1q9w==
@@ -2325,7 +2325,7 @@ babel-jest@^24.9.0:
     chalk "^2.4.2"
     slash "^2.0.0"
 
-babel-loader@8.1.0:
+babel-loader@8.1.0, babel-loader@^8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.1.0.tgz#c611d5112bd5209abe8b9fa84c3e4da25275f1c3"
   integrity sha512-7q7nC1tYOrqvUrN3LQK4GwSk/TQorZSOlO9C+RZDZpODgyN4ZlCqE5q9cDsyWOliN+aU9B4JX01xK9eJXowJLw==
@@ -5369,11 +5369,6 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
-
-i@^0.3.6:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/i/-/i-0.3.6.tgz#d96c92732076f072711b6b10fd7d4f65ad8ee23d"
-  integrity sha1-2WyScyB28HJxG2sQ/X1PZa2O4j0=
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
@@ -9033,11 +9028,6 @@ react-lifecycles-compat@^3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
-
-react-onclickoutside@^6.9.0:
-  version "6.9.0"
-  resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.9.0.tgz#a54bc317ae8cf6131a5d78acea55a11067f37a1f"
-  integrity sha512-8ltIY3bC7oGhj2nPAvWOGi+xGFybPNhJM0V1H8hY/whNcXgmDeaeoCMPPd8VatrpTsUWjb/vGzrmu6SrXVty3A==
 
 react-redux-loading@^4.6.1:
   version "4.6.1"

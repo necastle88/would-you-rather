@@ -1,22 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import reducer from './reducers'
-import middleware from './middleware';
 
+import { handleInitData } from './actions/shared';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-
+import { PersistGate } from 'redux-persist/lib/integration/react';
 import './index.scss';
+import configureStore from './config/store.config';
 
-const store = createStore(reducer, middleware);
+
+const { persistor, store } = configureStore()
+
+const onBeforeLift = () => {
+  handleInitData();
+}
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+      <PersistGate loading={null} onBeforeLift={onBeforeLift} persistor={persistor}>
+        <App />
+        </PersistGate>
+    </Provider>,
   document.getElementById('root')
 );
 

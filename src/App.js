@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -14,11 +14,13 @@ import Nav from './components/Nav/Nav.component';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
-const App = (props) => {
-  useEffect(() => {
-    handleInitData()
-  }, []); 
+class App extends Component {
 
+  componentDidMount() {
+    this.props.dispatch(handleInitData())
+  }
+
+  render() {
     return (
      
       <Router>
@@ -30,7 +32,7 @@ const App = (props) => {
             position: 'absolute',
             marginTop: '-1px'
           }}/>
-          {props.loading === true
+          {this.props.loading === true
             ? <LoginPage />
             : <div>
                 <Route path='/' exact component={Dashboard}/>
@@ -43,6 +45,7 @@ const App = (props) => {
       
     );
   }
+}  
 
 
 const mapStateToProps = ({ authedUser }) => {

@@ -17,8 +17,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 class App extends Component {
 
   componentDidMount() {
-    this.props.dispatch(handleInitData())
-  }
+    if (this.props.loading === true) {
+      this.props.dispatch(handleInitData())
+    }
+}
+   
+  
 
   render() {
     return (

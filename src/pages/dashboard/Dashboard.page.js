@@ -5,7 +5,7 @@ import UnansweredQuestion from '../../components/UnansweredQuestion/UnansweredQu
 const DashboardPage = ({ sortedQuestions }) => {
   const [answered, setAnswered] = useState(false);
 
-
+  console.log(sortedQuestions)
   return(
     <div>
       <button onClick={() => setAnswered(true)}>Answered</button>

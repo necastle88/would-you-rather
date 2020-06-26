@@ -15,7 +15,7 @@ const UnansweredQuestion = ({ questionsValues, users }) => {
   return (
     <div>
       {questionsValues.map((question, idx) => {
-        return <div key={question.id}>{console.log(users.id)}</div>
+        return <div key={question.id}>{question.author}</div>
       })}
     </div>
   )

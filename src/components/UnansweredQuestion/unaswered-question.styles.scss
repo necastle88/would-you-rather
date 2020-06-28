@@ -1,0 +1,53 @@
+.card-container {
+  border: 0 0 0 white;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 1px solid #f7f7f7;
+  width: 560px;
+  height: max-content;
+  margin: 30px auto 0 auto;
+  box-shadow: 0px 0px 15px -9px rgba(0,0,0,0.75);
+
+  .question-container {
+    display: inline-grid;
+    grid-template-columns: 30% auto;
+    grid-template-rows: 75% auto;
+    width: inherit;
+
+    .user-info-column {
+      align-self: center;
+      justify-self: center;
+  }
+  .divider-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 380px;
+}
+  .line {
+    height: .5px;
+    width: 40%;
+    background-color: #555;
+    display: block;
+  }
+    .sumbit-Question-btn {
+      width: 350px;
+      height: 50px;
+      cursor: pointer;
+      background: linear-gradient(315deg, #6617cb 0%, #cb218e 74%);
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.20);
+      border: none;
+      border-radius: 3px;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      margin: 20px 0 21px 0px;
+
+      &:hover{
+        background: linear-gradient(45deg,#cb218e 0%, #6617cb 74%);
+        }
+      }
+}
+}
+

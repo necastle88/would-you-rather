@@ -21,12 +21,10 @@ class App extends Component {
       this.props.dispatch(handleInitData())
     }
 }
-   
-  
 
   render() {
     return (
-     
+  
       <Router>
         <div className="App">
           <Nav />

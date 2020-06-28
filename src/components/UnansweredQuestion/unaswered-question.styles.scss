@@ -11,20 +11,35 @@
 
   .question-container {
     display: inline-grid;
-    grid-template-columns: 30% auto;
-    grid-template-rows: 75% auto;
+    grid-template-columns: 28% 4% auto;
+    grid-template-rows: max-content;
     width: inherit;
 
     .user-info-column {
       align-self: center;
       justify-self: center;
   }
+
+  .question-form-container {
+    /* align-self: center; */
+    justify-self: flex-end;
+    margin: 9px 0 0 0;
+  }
+
   .divider-row {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 380px;
+    width: 372px;
 }
+  .horizontal-divider {
+    height: 90%;
+    width: .5px;
+    background-color: #c7c7c7;
+    display: block;
+    align-self: center;
+    justify-self: flex-start;
+  }
   .line {
     height: .5px;
     width: 40%;

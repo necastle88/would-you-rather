@@ -29,13 +29,15 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
                     <img
                       src={users[question.author].avatarURL}
                       alt="avatar"
-                      width="60"
+                      width="85"
                     />
                   }
-                  
+                  <div className="name-container">
+                  {users[question.author].name}
                 </div>
-                
+                </div> 
               </div>
+              <div className='horizontal-divider'></div>
             
               <div className="question-form-container">
                 <h3 className="question-card-title">Would you rather</h3>
@@ -55,9 +57,6 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
                   </button>
                 </form>
               </div>
-              <div className="name-container">
-              {users[question.author].name}
-            </div>
             </div>
           </div>
         ) : null;

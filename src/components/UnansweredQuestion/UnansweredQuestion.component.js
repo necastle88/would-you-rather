@@ -25,8 +25,10 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
             <div className="question-container">
               <div className="user-info-column">
                 <div className="avatar-container">
+                <p className='author-heading' >Author</p>
                   {
                     <img
+                      className='avatar'
                       src={users[question.author].avatarURL}
                       alt="avatar"
                       width="85"
@@ -38,7 +40,6 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
                 </div> 
               </div>
               <div className='horizontal-divider'></div>
-            
               <div className="question-form-container">
                 <h3 className="question-card-title">Would you rather</h3>
                 <form>
@@ -46,7 +47,7 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
                   {question.optionOne.text}
                   <div className='divider-row'>
                     <span className='line' />
-                    <p>or</p>
+                    <p className='or-text' >or</p>
                     <span className='line' />
                   </div>
                   <input type="radio" value="Hi" />

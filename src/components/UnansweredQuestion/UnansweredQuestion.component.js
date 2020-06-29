@@ -44,14 +44,14 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
                 <h3 className="question-card-title">Would you rather</h3>
                 <form>
                   <input type="radio" value="Hi" />
-                  {question.optionOne.text}
+                  <span className='question-text'>{question.optionOne.text}</span>
                   <div className='divider-row'>
                     <span className='line' />
                     <p className='or-text' >or</p>
                     <span className='line' />
                   </div>
                   <input type="radio" value="Hi" />
-                  {question.optionTwo.text}
+                  <span className='question-text'>{question.optionTwo.text}</span>
                   <br />
                   <button className="sumbit-Question-btn" type="submit">
                     Submit

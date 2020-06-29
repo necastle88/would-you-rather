@@ -124,10 +124,15 @@
         top: -2px;
         left: -1px;
         position: relative;
-        background-color: #6617cb;
+        background-color: #220031;
         content: '';
         display: inline-block;
         visibility: visible;
         border: 2px solid white;
     }
 
+    span.question-text {
+      font-family: roboto;
+      color: #5f0a87;
+      font-size: 15px;
+  }

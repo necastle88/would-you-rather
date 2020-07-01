@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-
+import { handleSaveAnswer } from '../../actions/users';
 import "./unaswered-question.styles.scss";
 
-const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
-  const [selectedAnswer, setSelectedAnswer] = useState({ questionId: '', selectedOption: ''});
+const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) => {
+  const [selectedAnswer, setSelectedAnswer] = useState({ authedUser, id: '', answer: ''});
 
   let answers = users[authedUser].answers;
   
@@ -12,7 +12,8 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
 
   const handleSumbit = (event) => {
     event.preventDefault();
-    console.log(selectedAnswer, authedUser)
+    dispatch(handleSaveAnswer(selectedAnswer))
+    console.log(selectedAnswer)
   }
   
 
@@ -28,7 +29,6 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
   return (
     <div>
       {questionsValues.map((question, idx) => {
-        console.log(question);
         return !Object.keys(answers).includes(question.id) ? (
           <div className="card-container" key={question.id}>
             <div className="question-container">
@@ -56,7 +56,11 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
                     type="radio"
                     value={'optionOne'}
                     name="question"
-                    onChange={e => setSelectedAnswer({questionId: question.id, selectedOption: e.target.value})}
+                    onChange={e => setSelectedAnswer({
+                      id: question.id, 
+                      answer: e.target.value,
+                      authedUser
+                    })}
                   />
                   <span className="question-text">
                     {question.optionOne.text}
@@ -70,7 +74,11 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
                     type="radio" 
                     value={'optionTwo'}
                     name="question" 
-                    onChange={e => setSelectedAnswer({questionId: question.id, selectedOption: e.target.value})}
+                    onChange={e => setSelectedAnswer({
+                      id: question.id, 
+                      answer: e.target.value,
+                      authedUser  
+                    })}
                     />
                   <span className="question-text">
                     {question.optionTwo.text}
@@ -89,12 +97,13 @@ const UnansweredQuestion = ({ questionsValues, users, authedUser }) => {
   );
 };
 
-const mapStateToProps = ({ questions, users, authedUser }) => {
+const mapStateToProps = ({ questions, users, authedUser, dispatch }) => {
   const questionsValues = Object.values(questions);
   return {
     questionsValues,
     users,
     authedUser,
+    dispatch
   };
 };
 

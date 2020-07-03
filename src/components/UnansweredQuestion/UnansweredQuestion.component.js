@@ -4,8 +4,7 @@ import { handleSaveAnswer } from '../../actions/users';
 import "./unaswered-question.styles.scss";
 
 const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) => {
-  const [selectedAnswer, setSelectedAnswer] = useState({ authedUser, id: '', answer: ''});
-
+  const [selectedAnswer, setSelectedAnswer] = useState({ authedUser, qid: '', answer: ''});
   let answers = users[authedUser].answers;
   
  
@@ -57,7 +56,7 @@ const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) =>
                     value={'optionOne'}
                     name="question"
                     onChange={e => setSelectedAnswer({
-                      id: question.id, 
+                      qid: question.id, 
                       answer: e.target.value,
                       authedUser
                     })}
@@ -75,7 +74,7 @@ const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) =>
                     value={'optionTwo'}
                     name="question" 
                     onChange={e => setSelectedAnswer({
-                      id: question.id, 
+                      qid: question.id, 
                       answer: e.target.value,
                       authedUser  
                     })}
@@ -97,13 +96,12 @@ const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) =>
   );
 };
 
-const mapStateToProps = ({ questions, users, authedUser, dispatch }) => {
+const mapStateToProps = ({ questions, users, authedUser }) => {
   const questionsValues = Object.values(questions);
   return {
     questionsValues,
     users,
     authedUser,
-    dispatch
   };
 };
 

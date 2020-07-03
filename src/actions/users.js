@@ -1,8 +1,8 @@
 import { hideLoading } from "react-redux-loading";
 
 export const GET_USERS = 'GET_USERS';
-export const SAVE_QUESTION='SAVE_QUESTION';
-export const SAVE_ANSWER='SAVE_ANSWER';
+export const SAVE_QUESTION = 'SAVE_QUESTION';
+export const SAVE_ANSWER = 'SAVE_ANSWER';
 
 export const getUsers = ( users ) => {
   return {
@@ -26,10 +26,11 @@ export function handleSaveQuestion( info ){
   }
 }
 
-function saveAnswer({ authedUser, answer }){
+function saveAnswer({ authedUser, qid, answer }){
   return{
       type: SAVE_ANSWER,
-      id:authedUser,
+      qid,
+      authedUser,
       answer,
   }
 }

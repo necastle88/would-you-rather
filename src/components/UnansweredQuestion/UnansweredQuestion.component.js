@@ -49,7 +49,7 @@ const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) =>
               </div>
               <div className="horizontal-divider"></div>
               <div className="question-form-container">
-                <h3 className="question-card-title">Would you rather</h3>
+                <h3 className="question-card-title">Would You Rather</h3>
                 <form onSubmit={handleSumbit} >
                   <input
                     type="radio"

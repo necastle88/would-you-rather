@@ -9,7 +9,7 @@
   color: #5f0a87;
   font-size: 12px;
   font-family: 'roboto';
-  font-weight: bold;
+  margin: 6px 0 0 0;
 
   span.zero-percent-text {
     width: 100%;
@@ -25,9 +25,9 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 100%;
+  width: 0;
   opacity: 1;
-  transition: 1s ease-in 0.2s;
+  transition: width 1s ease-out 0.2s;
   color: white;
   font-size: 12px;
   font-family: 'roboto';

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import "./result-question.scss";
 import ProgressBar from '../ProgressBar/ProgressBar.component';
+import selectedChoice from '../../assets/images/SVG/SVG/SVG/yourLike.svg';
 
 const ResultCard = ({ dispatch, questionsValues, users, authedUser }) => {
   let answers = users[authedUser].answers;
@@ -27,7 +28,7 @@ const ResultCard = ({ dispatch, questionsValues, users, authedUser }) => {
         let questionTwoVotes = question.optionTwo.votes.length
         return Object.keys(answers).includes(question.id) ? (
           <div className="card-container" key={question.id}>
-            <div className="question-container">
+            <div className="result-container">
               <div className="user-info-column">
                 <div className="avatar-container">
                   <p className="author-heading">Author</p>
@@ -45,32 +46,54 @@ const ResultCard = ({ dispatch, questionsValues, users, authedUser }) => {
                 </div>
               </div>
               <div className="horizontal-divider"></div>
-              <div className="question-form-container">
-                <h3 className="question-card-title">Would you rather</h3>
+              <div className="result-form-container">
+                <h3 className="result-card-title">Poll Results</h3>
                   <span className="question-text">
                     {question.optionOne.text}
                   </span>
+                  <div className='your-choice-image'>
+                    { question.optionOne.votes.includes(authedUser) === true
+                      ? <img 
+                        className='your-choice-image-one' 
+                        src={selectedChoice} 
+                        width='60px' 
+                        alt='Your selected poll choice'>
+                      </img>
+                    : null}
+                  </div> 
+                 
                   <ProgressBar  done={ questionOneVotes > 0
                     ? questionOneVotes / (questionTwoVotes + questionOneVotes) * 100 
                     : 0
                   }/>
-                  <div className="divider-row">
-                    <span className="line" />
-                    <p className="or-text">or</p>
-                    <span className="line" />
-                  </div>
-               
-                  <span className="question-text">
+                  <span className='votes'>
+                    {`${questionOneVotes}/${questionTwoVotes + questionOneVotes} votes`}
+                  </span>
+                  <span className="result-text">
                     {question.optionTwo.text}
                   </span>
-                  {console.log(questionOneVotes / (questionTwoVotes + questionOneVotes) * 100)}
+                  <div>
+                  { question.optionTwo.votes.includes(authedUser)
+                    ?<img 
+                      className='your-choice-image-two' 
+                      src={selectedChoice} 
+                      width='60px' 
+                      alt='Your selected poll choice'>
+                      </img>
+                  : null}
+                  <span>
                   <ProgressBar done={ questionTwoVotes > 0
                     ? questionTwoVotes / (questionTwoVotes + questionOneVotes) * 100 
                     : 0
                   }/>
+                  </span>
+                  </div>
+                  <span className='votes'>
+                    {`${questionTwoVotes}/${questionTwoVotes + questionOneVotes} votes`}
+                  </span>
                   <br />
                   <button className="view-poll-btn" type="submit">
-                    View Poll
+                    Questions
                   </button>
               </div>
             </div>

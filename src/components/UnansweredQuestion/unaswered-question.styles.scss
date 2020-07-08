@@ -58,7 +58,7 @@
 
   .question-form-container {
     /* align-self: center; */
-    justify-self: flex-end;
+    justify-self: flex-start !important;
     margin: 9px 0 0 0;
   }
 
@@ -67,7 +67,7 @@
     justify-content: space-evenly;
     align-items: center;
     width: 372px;
-    margin: -8px 0 -8px 0;
+    margin: -8px 0 -8px -13px;
 }
   .horizontal-divider {
     height: 90%;

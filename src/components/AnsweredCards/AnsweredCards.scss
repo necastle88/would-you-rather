@@ -9,14 +9,19 @@
   margin: 30px auto 0 auto;
   box-shadow: 0px 0px 15px -9px rgba(0,0,0,0.75);
   
-  h3.result-card-title {
+  h3.question-card-title {
     color: #5f0a87;
     font-size: 26px;
-    margin: 1px 0 13px 0;
+    margin: 1px 0 16px 0;
   }
   
+  .or-text {
+    color: #5f0a87;
+    font-size: 28;
+    font-weight: bold;
+  }
 
-  .result-container {
+  .question-container {
     display: inline-grid;
     grid-template-columns: 28% 4% auto;
     grid-template-rows: max-content;
@@ -45,9 +50,9 @@
     }
   }
 
-  .result-form-container {
-    justify-self: self-start;
-    margin: 9px 0 0 4px;
+  .question-form-container {
+    justify-self: flex-end;
+    margin: 9px 0 0 0;
   }
 
   .divider-row {
@@ -55,7 +60,7 @@
     justify-content: space-evenly;
     align-items: center;
     width: 372px;
-    margin: -8px 0 -8px 0;
+    margin: -8px 0 -8px -12px;
 }
   .horizontal-divider {
     height: 90%;
@@ -71,46 +76,30 @@
     background-color: #555;
     display: block;
   }
-
-    .view-poll-btn {
-      width: 350px;
-      height: 50px;
-      cursor: pointer;
-      background: linear-gradient(315deg, #6617cb 0%, #cb218e 74%);
-      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.20);
-      border: none;
-      border-radius: 3px;
-      color: white;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 500;
-      margin: -13px 0 21px 0px;
-
-      &:hover{
-        background: linear-gradient(45deg,#cb218e 0%, #6617cb 74%);
-        }
-      }
-}
+ 
 }
 
-    span.result-text {
+
+    span.question-text {
       font-family: roboto;
       color: #220031;
       font-size: 15px;
   }
-  span.votes {
-    justify-content: center;
-    display: flex;
-    font-family: roboto;
-    color: #220031;
-    font-size: 13px;
-    margin: 5px 0 8px 0;
-}
-img.your-choice-image-one {
-  margin: -47px 0 0 279px;
-  position: absolute;
-}
+  .view-poll-btn-answered {
+    width: 350px;
+    height: 50px;
+    cursor: pointer;
+    background: linear-gradient(315deg, #6617cb 0%, #cb218e 74%);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.20);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    margin: 16px 0 21px 0px;
 
-img.your-choice-image-two {
-  margin: -47px 0 0 279px;
-  position: absolute;
+    &:hover{
+      background: linear-gradient(45deg,#cb218e 0%, #6617cb 74%);
+      }
+    }
 }

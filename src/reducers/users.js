@@ -8,7 +8,7 @@ export default function users (state = {}, action) {
         ...action.users
       }
       case SAVE_ANSWER:
-        console.log(action.authedUser)
+        console.log(action.answer)
         return {
             ...state,
             [action.authedUser]: {
@@ -17,9 +17,12 @@ export default function users (state = {}, action) {
                 ...state[action.authedUser].answers,
                 [action.qid]: action.answer
               }
-            }
+            },
+          
           }
       default :
        return state
   }
 }
+// 
+//

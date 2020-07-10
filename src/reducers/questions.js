@@ -13,13 +13,13 @@ export default function questions(state={}, action){
               [action.question.id]:action.question
           }
       case TOGGLE_QUESTION:
-          return{
+          return {
               ...state,
-              [action.id]:{
-                  ...state[action.id],
-                  [action.answer]:{
-                      ...state[action.id][action.answer],
-                      votes: state[action.id][action.answer].votes.concat([action.authedUser])
+              [action.qid]:{
+                  ...state[action.qid],
+                  [action.answer]: {
+                      ...state[action.qid][action.answer],
+                      votes: state[action.qid][action.answer].votes.concat([action.authedUser])
                   }
               }
           }

@@ -1,29 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import "./result-question.scss";
 import ProgressBar from '../ProgressBar/ProgressBar.component';
 import selectedChoice from '../../assets/images/SVG/SVG/SVG/yourLike.svg';
 
-const ResultCard = ({ dispatch, questionsValues, users, authedUser }) => {
+import { useHistory, useLocation } from "react-router-dom";
+
+const ResultCard = ({ questionsValues, users, authedUser }) => {
   let answers = users[authedUser].answers;
   
-  const handleSumbit = (event) => {
-    event.preventDefault();
-  }
+  let history = useHistory();
+  let location = useLocation();
+  let match = location.pathname.slice(8);
+  console.log(questionsValues)
   
-
-  questionsValues.sort((a, b) => {
-    if (a < b) {
-      return -1;
-    } else if (a > b) {
-      return 1;
-    }
-    return 0;
-  });
+  function handleClick() {
+    history.push("/");
+  }
 
   return (
     <div>
-      {questionsValues.map((question, idx) => {
+      {questionsValues.filter(id => id.id === match).map((question) => {
         let questionOneVotes = question.optionOne.votes.length
         let questionTwoVotes = question.optionTwo.votes.length
         return Object.keys(answers).includes(question.id) ? (
@@ -92,7 +89,11 @@ const ResultCard = ({ dispatch, questionsValues, users, authedUser }) => {
                     {`${questionTwoVotes}/${questionTwoVotes + questionOneVotes} votes`}
                   </span>
                   <br />
-                  <button className="view-poll-btn" type="submit">
+                  <button 
+                    className="view-poll-btn" 
+                    type="submit"
+                    onClick={handleClick}
+                    >
                     Questions
                   </button>
               </div>

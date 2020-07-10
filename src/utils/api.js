@@ -16,9 +16,9 @@ export function getInitData () {
 }
 
 export const saveQuestionAnswer = (info) => {
-  return _saveQuestionAnswer(info);
+  return _saveQuestionAnswer(info)
 };
 
 export const saveQuestion = (info) => {
-  return _saveQuestion(info);
+  return _saveQuestion(info)
 }

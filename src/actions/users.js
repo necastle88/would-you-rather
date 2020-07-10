@@ -1,4 +1,4 @@
-import { hideLoading } from "react-redux-loading";
+import { hideLoading, showLoading } from "react-redux-loading";
 
 export const GET_USERS = 'GET_USERS';
 export const SAVE_QUESTION = 'SAVE_QUESTION';
@@ -26,7 +26,7 @@ export function handleSaveQuestion( info ){
   }
 }
 
-function saveAnswer({ authedUser, qid, answer }){
+function saveAnswer({ authedUser, qid, answer }) {
   return{
       type: SAVE_ANSWER,
       qid,
@@ -35,7 +35,7 @@ function saveAnswer({ authedUser, qid, answer }){
   }
 }
 
-export function handleSaveAnswer( info ){
+export function handleSaveAnswer( info ) {
   return ( dispatch ) => {
       dispatch(saveAnswer( info ))
       dispatch(hideLoading())

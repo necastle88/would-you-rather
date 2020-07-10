@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "./AnsweredCards.scss";
+
 
 
 const AnsweredCards = ({ questionsValues, users, authedUser }) => {
   let answers = users[authedUser].answers;
   
-  const handleSumbit = (event) => {
-    event.preventDefault();
-  }
-  
-
   questionsValues.sort((a, b) => {
     if (a < b) {
-      return -1;
-    } else if (a > b) {
       return 1;
+    } else if (a > b) {
+      return -1;
     }
     return 0;
   });
@@ -57,9 +54,11 @@ const AnsweredCards = ({ questionsValues, users, authedUser }) => {
                   {question.optionTwo.text}
                 </span>
                   <br />
-                  <button className="view-poll-btn-answered" type="submit">
+                  <Link to={`/answer/${question.id}`}>
+                  <button className="view-poll-btn-answered" type="submit" >
                     View Poll
                   </button>
+                  </Link>
               </div>
             </div>
           </div>

@@ -4,14 +4,15 @@ import './progressBar.style.scss';
 
 const ProgressBar = ({ done }) => {
   const [style, setStyle] = useState({});
-
+  done = done.toFixed(1);
  
 
   useEffect(() => {
     const timer =  setTimeout(() => {
       const updateStyle = {
         opacity: 1,
-        width: `${done}%`
+        width: `${done}%`,
+        color: 'white'
       }
       setStyle(updateStyle);
     }, 500)

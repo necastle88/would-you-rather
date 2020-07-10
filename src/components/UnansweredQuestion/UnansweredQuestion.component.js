@@ -1,26 +1,26 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { handleSaveAnswer } from '../../actions/users';
+import { handleToggleQuestion } from '../../actions/questions';
+import { useHistory } from "react-router-dom";
 import "./unaswered-question.styles.scss";
 
 const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) => {
   const [selectedAnswer, setSelectedAnswer] = useState({ authedUser, qid: '', answer: ''});
   let answers = users[authedUser].answers;
-  
- 
+  let history = useHistory();
 
-  const handleSumbit = (event) => {
-    event.preventDefault();
+  const handleClick = () => {
+    history.push(`/answer/${selectedAnswer.qid}`);
+    dispatch(handleToggleQuestion(selectedAnswer))
     dispatch(handleSaveAnswer(selectedAnswer))
-    console.log(selectedAnswer)
   }
-  
 
   questionsValues.sort((a, b) => {
     if (a < b) {
-      return -1;
-    } else if (a > b) {
       return 1;
+    } else if (a > b) {
+      return -1;
     }
     return 0;
   });
@@ -50,7 +50,7 @@ const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) =>
               <div className="horizontal-divider"></div>
               <div className="question-form-container">
                 <h3 className="question-card-title">Would You Rather</h3>
-                <form onSubmit={handleSumbit} >
+                <form>
                   <input
                     type="radio"
                     value={'optionOne'}
@@ -83,7 +83,10 @@ const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) =>
                     {question.optionTwo.text}
                   </span>
                   <br />
-                  <button className="sumbit-Question-btn" type="submit">
+                  <button 
+                    disabled={selectedAnswer.qid === '' ? true : false} className="sumbit-Question-btn" type="button"
+                    onClick={handleClick}
+                  >
                     Submit
                   </button>
                 </form>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../../actions/authedUser';
-import { NavLink } from 'react-router-dom';
+import { NavLink,  Link } from 'react-router-dom';
+
 
 import './nav.styles.scss';
 
@@ -39,7 +40,8 @@ const Nav = ({ authedUser, users, dispatch }) => {
             /></p></span>
           : null
         }
-        <p className='login-btn' onClick={() => dispatch(setAuthedUser(null))} >{authedUser ? 'Logout' : ''}</p>
+        <Link to='/'>
+        <p className='login-btn' onClick={() => dispatch(setAuthedUser(null))} >{authedUser ? 'Logout' : ''}</p></Link>
         
       </div>
     </div>

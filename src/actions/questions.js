@@ -30,11 +30,11 @@ export function getQuestions(questions) {
   };
 }
 
-function toggleQuestion({ authedUser, id, answer }) {
+function toggleQuestion({ authedUser, qid, answer }) {
   return {
     type: TOGGLE_QUESTION,
     authedUser,
-    id,
+    qid,
     answer,
   };
 }
@@ -45,11 +45,11 @@ export function handleToggleQuestion(info) {
     dispatch(toggleQuestion(info));
     return await saveQuestionAnswer({
       authedUser: info.authedUser,
-      qid: info.id,
+      qid: info.qid,
       answer: info.answer,
     }).catch((e) => {
       console.warn("Error in handleToggleQuestion: ", e);
       dispatch(toggleQuestion(info));
-    }); //This is where I would call the 'users' action? for example: .then(handleSaveAnswer(info))
+    }).then((res) => res);
   };
 }

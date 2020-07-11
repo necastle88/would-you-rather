@@ -5,22 +5,26 @@ export const GET_QUESTIONS = "GET_QUESTIONS";
 export const TOGGLE_QUESTION ='TOGGLE_QUESTION';
 export const ADD_QUESTION ='ADD_QUESTION';
 
-function addQuestion(question) {
+
+function addQuestion({optionOneText, optionTwoText, author}){
   return {
-    type: ADD_QUESTION,
-    question,
-  };
+      type: ADD_QUESTION,
+      author,
+      optionOneText,
+      optionTwoText
+
+  }
 }
 
-export function handleAddQuestion(optionOneText, optionTwoText, author) {
-  return async (dispatch) => {
-    dispatch(showLoading());
-    return await saveQuestion({
-      optionOneText,
-      optionTwoText,
-      author,
-    }).then((question) => dispatch(addQuestion(question)));
-  };
+export function handleAddQuestion(optionOneText, optionTwoText, author){
+  return async (dispatch)=>{
+      dispatch(showLoading())
+      return await saveQuestion({
+          optionOneText,
+          optionTwoText,
+          author
+      }).then((question) => dispatch(addQuestion(question)))
+  }
 }
 
 export function getQuestions(questions) {

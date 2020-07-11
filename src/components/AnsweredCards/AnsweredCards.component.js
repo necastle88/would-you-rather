@@ -54,7 +54,7 @@ const AnsweredCards = ({ questionsValues, users, authedUser }) => {
                   {question.optionTwo.text}
                 </span>
                   <br />
-                  <Link to={`/answer/${question.id}`}>
+                  <Link to={`/questions/${question.id}`}>
                   <button className="view-poll-btn-answered" type="submit" >
                     View Poll
                   </button>

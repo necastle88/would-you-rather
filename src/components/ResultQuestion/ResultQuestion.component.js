@@ -11,7 +11,7 @@ const ResultCard = ({ questionsValues, users, authedUser }) => {
   
   let history = useHistory();
   let location = useLocation();
-  let match = location.pathname.slice(8);
+  let match = location.pathname.slice(11);
   console.log(questionsValues)
   
   function handleClick() {
@@ -21,6 +21,7 @@ const ResultCard = ({ questionsValues, users, authedUser }) => {
   return (
     <div>
       {questionsValues.filter(id => id.id === match).map((question) => {
+        
         let questionOneVotes = question.optionOne.votes.length
         let questionTwoVotes = question.optionTwo.votes.length
         return Object.keys(answers).includes(question.id) ? (

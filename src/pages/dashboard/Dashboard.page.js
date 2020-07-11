@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import UnansweredQuestion from "../../components/UnansweredQuestion/UnansweredQuestion.component";
-import ResultCard from "../../components/ResultQuestion/ResultQuestion.component";
 import AnsweredCards from "../../components/AnsweredCards/AnsweredCards.component";
 import "./dashboard.styles.scss";
 

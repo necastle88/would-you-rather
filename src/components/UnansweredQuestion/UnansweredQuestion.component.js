@@ -11,7 +11,7 @@ const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) =>
   let history = useHistory();
 
   const handleClick = () => {
-    history.push(`/answer/${selectedAnswer.qid}`);
+    history.push(`/questions/${selectedAnswer.qid}`);
     dispatch(handleToggleQuestion(selectedAnswer))
     dispatch(handleSaveAnswer(selectedAnswer))
   }

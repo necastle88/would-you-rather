@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import LoginPage from "./pages/login/loginPage";
 import Dashboard from "./pages/dashboard/Dashboard.page";
 import ResultCard from "./components/ResultQuestion/ResultQuestion.component";
+import NewQuestion from "./components/NewQuestion/NewQuestion.component";
 
 import LoadingBar from "react-redux-loading";
 
@@ -39,7 +40,8 @@ class App extends Component {
           ) : (
             <div>
               <Route path="/" exact component={Dashboard} />
-              <Route path='/answer/:id' component={ResultCard} />
+              <Route path='/questions/:id' component={ResultCard} />
+              <Route path='/add' exact component={NewQuestion} />
             </div>
           )}
         </div>

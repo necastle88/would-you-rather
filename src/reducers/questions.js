@@ -8,10 +8,10 @@ export default function questions(state={}, action){
               ...action.questions
           }
       case ADD_QUESTION:
-          return{
-              ...state,
-              [action.question.id]:action.question
-          }
+        return {
+            ...state,
+            [action.question.id]:action.question
+        }
       case TOGGLE_QUESTION:
           return {
               ...state,

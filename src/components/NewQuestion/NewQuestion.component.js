@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { handleAddQuestion } from "../../actions/questions";
 import { useHistory } from "react-router-dom";
-import { saveQuestion } from "../../utils/api";
 import "./new-question.styles.scss";
 
 const NewQuestion = ({ dispatch, questionsValues, users, authedUser }) => {

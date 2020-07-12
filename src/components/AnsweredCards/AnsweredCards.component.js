@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./AnsweredCards.scss";
@@ -8,14 +8,7 @@ import "./AnsweredCards.scss";
 const AnsweredCards = ({ questionsValues, users, authedUser }) => {
   let answers = users[authedUser].answers;
   
-  questionsValues.sort((a, b) => {
-    if (a < b) {
-      return 1;
-    } else if (a > b) {
-      return -1;
-    }
-    return 0;
-  });
+
 
   return (
     <div>
@@ -70,6 +63,16 @@ const AnsweredCards = ({ questionsValues, users, authedUser }) => {
 
 const mapStateToProps = ({ questions, users, authedUser }) => {
   const questionsValues = Object.values(questions);
+  
+  questionsValues.sort((a, b) => {
+    if (a.timestamp < b.timestamp) {
+      return 1;
+    } else if (a.timestamp > b.timestamp) {
+      return -1;
+    }
+    return 0;
+  });
+
   return {
     questionsValues,
     users,

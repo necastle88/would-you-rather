@@ -16,14 +16,6 @@ const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) =>
     dispatch(handleSaveAnswer(selectedAnswer))
   }
 
-  questionsValues.sort((a, b) => {
-    if (a < b) {
-      return 1;
-    } else if (a > b) {
-      return -1;
-    }
-    return 0;
-  });
 
   return (
     <div>
@@ -101,6 +93,16 @@ const UnansweredQuestion = ({ dispatch, questionsValues, users, authedUser }) =>
 
 const mapStateToProps = ({ questions, users, authedUser }) => {
   const questionsValues = Object.values(questions);
+
+  questionsValues.sort((a, b) => {
+    if (a.timestamp < b.timestamp) {
+      return 1;
+    } else if (a.timestamp > b.timestamp) {
+      return -1;
+    }
+    return 0;
+  });
+
   return {
     questionsValues,
     users,

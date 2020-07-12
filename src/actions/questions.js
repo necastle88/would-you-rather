@@ -1,30 +1,25 @@
 import { showLoading } from "react-redux-loading";
-import {saveQuestion, saveQuestionAnswer} from '../utils/api.js'
+import { saveQuestion, saveQuestionAnswer } from "../utils/api.js";
 
 export const GET_QUESTIONS = "GET_QUESTIONS";
-export const TOGGLE_QUESTION ='TOGGLE_QUESTION';
-export const ADD_QUESTION ='ADD_QUESTION';
+export const TOGGLE_QUESTION = "TOGGLE_QUESTION";
+export const ADD_QUESTION = "ADD_QUESTION";
 
-
-function addQuestion({optionOneText, optionTwoText, author}){
+function addQuestion(question) {
   return {
-      type: ADD_QUESTION,
-      author,
-      optionOneText,
-      optionTwoText
-
-  }
+    type: ADD_QUESTION,
+    question,
+  };
 }
 
-export function handleAddQuestion(optionOneText, optionTwoText, author){
-  return async (dispatch)=>{
-      dispatch(showLoading())
-      return await saveQuestion({
-          optionOneText,
-          optionTwoText,
-          author
-      }).then((question) => dispatch(addQuestion(question)))
-  }
+export function handleAddQuestion({ optionOneText, optionTwoText, author }) {
+  return async (dispatch) => {
+    return await saveQuestion({
+      optionOneText,
+      optionTwoText,
+      author,
+    }).then((question) => dispatch(addQuestion(question)));
+  };
 }
 
 export function getQuestions(questions) {
@@ -51,9 +46,11 @@ export function handleToggleQuestion(info) {
       authedUser: info.authedUser,
       qid: info.qid,
       answer: info.answer,
-    }).catch((e) => {
-      console.warn("Error in handleToggleQuestion: ", e);
-      dispatch(toggleQuestion(info));
-    }).then((res) => res);
+    })
+      .catch((e) => {
+        console.warn("Error in handleToggleQuestion: ", e);
+        dispatch(toggleQuestion(info));
+      })
+      .then((res) => res);
   };
 }

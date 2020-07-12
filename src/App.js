@@ -6,6 +6,7 @@ import LoginPage from "./pages/login/loginPage";
 import Dashboard from "./pages/dashboard/Dashboard.page";
 import ResultCard from "./components/ResultQuestion/ResultQuestion.component";
 import NewQuestion from "./components/NewQuestion/NewQuestion.component";
+import Page404 from "./pages/404/404Page";
 
 import LoadingBar from "react-redux-loading";
 
@@ -13,7 +14,13 @@ import { handleInitData } from "./actions/shared";
 
 import "./App.scss";
 import Nav from "./components/Nav/Nav.component";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { 
+  BrowserRouter as Router, 
+  Route,
+  Link,
+  Switch,
+  Redirect
+ } from "react-router-dom";
 
 class App extends Component {
   componentDidMount() {
@@ -39,9 +46,12 @@ class App extends Component {
             <LoginPage />
           ) : (
             <div>
-              <Route path="/" exact component={Dashboard} />
-              <Route path='/questions/:id' component={ResultCard} />
-              <Route path='/add' exact component={NewQuestion} />
+              <Switch>
+                <Route exact path="/" component={Dashboard} />
+                <Route path='/questions/:id'  component={ResultCard} />
+                <Route path='/add' component={NewQuestion} />
+                <Route component={Page404} />
+              </Switch>
             </div>
           )}
         </div>

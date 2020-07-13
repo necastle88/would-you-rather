@@ -12,8 +12,11 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['users'],
+  blacklist:['questions', 'authedUser'],
   autoMergeLevel2
 }
+
 
 const persistedReducer = persistReducer(persistConfig, reducers)
 

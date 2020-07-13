@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./result-question.scss";
+
 import ProgressBar from "../ProgressBar/ProgressBar.component";
 import selectedChoice from "../../assets/images/SVG/SVG/SVG/yourLike.svg";
+import Page404 from "../../pages/404/404Page";
 
 import { useHistory, useLocation,  } from "react-router-dom";
 
@@ -17,9 +19,9 @@ const ResultCard = ({ questionsValues, users, authedUser, isQuestionValid}) => {
     history.push("/");
   }
   
-  if (isQuestionValid === false) {
+  if (!isQuestionValid) {
     console.log(isQuestionValid)
-    return <div>invalid question id</div>;
+    return <Page404 />;
   } else {
     return (
       <div>
@@ -129,24 +131,26 @@ const ResultCard = ({ questionsValues, users, authedUser, isQuestionValid}) => {
 const mapStateToProps = ({questions, users, authedUser}, props) => {
   const questionsValues = Object.values(questions);
 
-   const { id } = props.match.params;
-  
-   const question = questions[id];
-   console.log(typeof questionsValues[id])
+  const { id } = props.match.params;
+  const question = questions[id];
 
-   if(typeof question === 'undefined'){
+  let isQuestionValid;
+
+   if(typeof question === 'undefined' ){
+    isQuestionValid = false
      return {
-       isQuestionValid: false,
+       isQuestionValid,
        users,
-      authedUser,
+        authedUser,
      }
-   }
-  
-   return {
-    questionsValues,
-    users,
-    authedUser,
-     isQuestionValid: true
+   } else {
+    isQuestionValid = true
+    return {
+      questionsValues,
+      users,
+      authedUser,
+       isQuestionValid: true
+     }
    }
  };
 

@@ -4,7 +4,7 @@ import { handleAddQuestion } from "../../actions/questions";
 import { useHistory } from "react-router-dom";
 import "./new-question.styles.scss";
 
-const NewQuestion = ({ dispatch, questionsValues, users, authedUser }) => {
+const NewQuestion = ({ dispatch, authedUser }) => {
   const [createdQuestion, setCreatedQuestion] = useState({
     author: authedUser,
     optionOneText: '',
@@ -35,7 +35,7 @@ const NewQuestion = ({ dispatch, questionsValues, users, authedUser }) => {
       optionTwoText: event.target.value, 
     });;
   }
-  console.log(createdQuestion)
+
   return (
     <div>
       <div className="new-question-container">
